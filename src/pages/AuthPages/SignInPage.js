@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import eyeIcon from '../../assets/images/eye.png';
 
 const SignInPage = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -17,7 +19,7 @@ const SignInPage = () => {
         <div className="password-container">
           <input type={showPassword ? 'text' : 'password'} placeholder="Password" name="password" />
           <img
-            src="images/eye.png"
+            src={eyeIcon}
             alt="eye"
             className="password-container__image"
             onClick={onPasswordTypeChange}
@@ -26,6 +28,10 @@ const SignInPage = () => {
 
         <button type="button">sign in</button>
       </form>
+
+      <div className="link-container">
+        <Link to="/auth/sign-up/">don't have an account?</Link>
+      </div>
     </section>
   );
 };
