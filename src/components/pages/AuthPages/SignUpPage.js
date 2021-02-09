@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import eyeIcon from '../../assets/images/eye.png';
+import eyeIcon from '../../../assets/images/eye.png';
 
 const SignUpPage = () => {
   const [showPassword, setShowPassword] = useState(false);
