@@ -1,25 +1,25 @@
 import React from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
-// components import
-import SignInPage from '../pages/AuthPages/SignInPage';
-import SignUpPage from '../pages/AuthPages/SignUpPage';
-import ConfirmPage from '../pages/AuthPages/ConfirmPage';
+import store from '../../store';
+import ToastContainer from '../core/ToastContainer/ToastContainer';
+import Content from '../core/Content/Content';
 
 const App = () => {
   return (
     <div className="app">
-      <Switch>
-        <Route path="/" exact />
-
-        <Route path="/auth/sign-in" component={SignInPage} />
-        <Route path="/auth/sign-up" component={SignUpPage} />
-        <Route path="/auth/:token" component={ConfirmPage} />
-
-        <Redirect to="/" />
-      </Switch>
+      <Router>
+        <Provider store={store}>
+          <ToastContainer />
+          <Content />
+        </Provider>
+      </Router>
     </div>
   );
 };
 
+// подумать над тем стоит ли вместо много экшенов авторизации сделать один (auth-actions)
+// подумать над setUserData action
+// перепроверить функционал
 export default App;

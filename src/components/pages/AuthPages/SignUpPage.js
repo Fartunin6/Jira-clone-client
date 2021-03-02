@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { signUpUser } from '../../../action-creators/signup-actions';
 import SignUpForm from '../../forms/SignUpForm';
 
 const SignUpPage = () => {
+  const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
 
   const onPasswordTypeChange = () => {
     setShowPassword((prev) => !prev);
   };
 
-  const handleSubmit = (values) => {};
+  const handleSubmit = (values) => {
+    dispatch(signUpUser(values));
+  };
 
   return (
     <section className="sign-up container">

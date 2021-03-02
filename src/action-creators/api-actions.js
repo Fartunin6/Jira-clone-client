@@ -22,13 +22,18 @@ export const apiError = (error) => ({
   payload: error,
 });
 
+export const apiSuccess = (message) => ({
+  type: API_SUCCESS,
+  payload: message,
+});
+
 export const apiAction = ({
   url = '',
   method = 'GET',
   data = null,
   accessToken = null,
-  onSuccess = () => ({ type: API_SUCCESS }),
-  onFailure = () => ({ type: API_ERROR }),
+  onSuccess,
+  onFailure,
   label = '',
   headersOverride = null,
 }) => {

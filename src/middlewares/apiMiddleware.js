@@ -1,11 +1,17 @@
 import { API } from '../action-types';
 import axios from 'axios';
-import { accessDenied, apiEnd, apiError, apiStart } from '../action-creators/api-actions';
+import {
+  accessDenied,
+  apiEnd,
+  apiError,
+  apiStart,
+  apiSuccess,
+} from '../action-creators/api-actions';
 
 export const apiMiddleware = ({ dispatch }) => (next) => (action) => {
   next(action);
 
-  if (action.type === API) return;
+  if (action.type !== API) return;
 
   const { url, method, data, accessToken, onSuccess, onFailure, label, headers } = action.payload;
 
@@ -27,11 +33,19 @@ export const apiMiddleware = ({ dispatch }) => (next) => (action) => {
       [dataOrParams]: data,
     })
     .then(({ data }) => {
-      dispatch(onSuccess(data));
+      if (data.message) {
+        dispatch(apiSuccess(data.message));
+      }
+
+      if (onSuccess) {
+        dispatch(onSuccess(data));
+      }
     })
     .catch((error) => {
-      dispatch(apiError(error.response.data));
-      dispatch(onFailure(error.response.data));
+      dispatch(apiError(error.response.data.error));
+      if (onFailure) {
+        dispatch(onFailure(error.response.data));
+      }
 
       if (error.response && error.response.status === 403) {
         dispatch(accessDenied(window.location.pathname));

@@ -6,7 +6,7 @@ import { REDUX_FORMS } from '../../constants/redux-forms';
 let SignUpForm = ({ handleSubmit, showPassword, onPasswordTypeChange }) => {
   return (
     <form onSubmit={handleSubmit} className="auth__form  sign-up__form">
-      <Field type="text" placeholder="Full name" name="fullName" component="input" />
+      <Field type="text" placeholder="Full name" name="name" component="input" />
       <Field type="text" placeholder="E-mail" name="email" component="input" />
 
       <div className="password-container">

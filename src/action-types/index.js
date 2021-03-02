@@ -7,6 +7,13 @@ export const API_ERROR = 'api_error';
 export const API_SUCCESS = 'api_success';
 
 //auth action types
+
+//sign-up
 export const SIGN_UP = 'sign_up';
+
+//sign-in
+export const SIGN_IN = 'sign_in';
 export const SET_USER = 'set_user';
-export const SIGN_IN_FAILED = 'sign_in_failed';
+
+//activation
+export const ACTIVATION = 'activation';
