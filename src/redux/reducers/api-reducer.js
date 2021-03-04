@@ -1,4 +1,4 @@
-import { API_END, API_ERROR, API_START, API_SUCCESS } from '../action-types';
+import { API_END, API_ERROR, API_START, API_SUCCESS } from '../action-types/api-types';
 
 const initialState = {
   isLoading: false,

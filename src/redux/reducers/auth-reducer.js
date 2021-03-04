@@ -1,4 +1,4 @@
-import { SET_USER } from '../action-types';
+import { RESET_USER, SET_USER } from '../action-types/auth-types';
 
 const initialState = {
   token: null,
@@ -12,6 +12,8 @@ const authReducer = (state = initialState, action) => {
         token: action.payload.token,
         user: action.payload.user,
       };
+    case RESET_USER:
+      return initialState;
     default:
       return state;
   }

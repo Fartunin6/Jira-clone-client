@@ -1,4 +1,11 @@
-import { ACCESS_DENIED, API, API_END, API_ERROR, API_START, API_SUCCESS } from '../action-types';
+import {
+  ACCESS_DENIED,
+  API,
+  API_END,
+  API_ERROR,
+  API_START,
+  API_SUCCESS,
+} from '../action-types/api-types';
 
 export const apiStart = (label) => ({
   type: API_START,

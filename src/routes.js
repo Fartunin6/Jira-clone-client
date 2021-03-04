@@ -2,12 +2,13 @@ import React, { useEffect } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { USER_STORAGE } from './constants/storages';
+import { setUser } from './redux/action-creators/auth-actions';
 
 // components import
 import SignInPage from './components/pages/authPages/SignInPage';
 import SignUpPage from './components/pages/authPages/SignUpPage';
 import ConfirmPage from './components/pages/authPages/ConfirmPage';
-import { setUserData } from './action-creators/signin-actions';
+import MainPage from './components/pages/MainPage/MainPage';
 
 const Routes = () => {
   const dispatch = useDispatch();
@@ -16,7 +17,7 @@ const Routes = () => {
   useEffect(() => {
     const storageData = JSON.parse(localStorage.getItem(USER_STORAGE));
     if (storageData) {
-      dispatch(setUserData(storageData));
+      dispatch(setUser(storageData));
     }
   }, []);
 
@@ -34,7 +35,7 @@ const Routes = () => {
 
   return (
     <Switch>
-      <Route path="/" exact />
+      <Route path="/" exact component={MainPage} />
 
       <Redirect to="/" />
     </Switch>

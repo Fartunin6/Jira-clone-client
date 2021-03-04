@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import SignInForm from '../../forms/SignInForm';
 import { useDispatch } from 'react-redux';
-import { signInUser } from '../../../action-creators/signin-actions';
+import { signInUser } from '../../../redux/action-creators/auth-actions';
 
 const SignInPage = () => {
   const dispatch = useDispatch();

@@ -1,4 +1,4 @@
-import { API } from '../action-types';
+import { API } from '../redux/action-types/api-types';
 import axios from 'axios';
 import {
   accessDenied,
@@ -6,7 +6,7 @@ import {
   apiError,
   apiStart,
   apiSuccess,
-} from '../action-creators/api-actions';
+} from '../redux/action-creators/api-actions';
 
 export const apiMiddleware = ({ dispatch }) => (next) => (action) => {
   next(action);
