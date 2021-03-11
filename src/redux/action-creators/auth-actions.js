@@ -7,7 +7,7 @@ import {
   USER,
 } from '../action-types/auth-types';
 import { AUTH_ENDPOINTS, USER_ENDPOINTS } from '../../endpoints';
-import { USER_STORAGE } from '../../constants/storages';
+import { TOKEN_STORAGE } from '../../constants/storages';
 import { apiAction } from './api-actions';
 
 export const signUpUser = (data) => {
@@ -59,11 +59,11 @@ const resetUserData = () => ({
 });
 
 export const setUser = (data) => (dispatch) => {
-  localStorage.setItem(USER_STORAGE, data.token);
+  localStorage.setItem(TOKEN_STORAGE, data.token);
   dispatch(setUserData(data));
 };
 
 export const resetUser = () => (dispatch) => {
-  localStorage.removeItem(USER_STORAGE);
+  localStorage.removeItem(TOKEN_STORAGE);
   dispatch(resetUserData());
 };

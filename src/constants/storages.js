@@ -1,1 +1,1 @@
-export const USER_STORAGE = 'user';
+export const TOKEN_STORAGE = 'token';

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { USER_STORAGE } from '../constants/storages';
+import { TOKEN_STORAGE } from '../constants/storages';
 import { getCurrentUser } from '../redux/action-creators/auth-actions';
 
 const withAuth = (Wrapped) => {
@@ -8,7 +8,7 @@ const withAuth = (Wrapped) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-      const token = localStorage.getItem(USER_STORAGE);
+      const token = localStorage.getItem(TOKEN_STORAGE);
 
       if (token) {
         dispatch(getCurrentUser(token));
