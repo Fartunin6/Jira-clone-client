@@ -1,8 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { USER_STORAGE } from './constants/storages';
-import { setUser } from './redux/action-creators/auth-actions';
+import { useSelector } from 'react-redux';
 
 // components import
 import SignInPage from './components/pages/authPages/SignInPage';
@@ -11,15 +9,7 @@ import ConfirmPage from './components/pages/authPages/ConfirmPage';
 import MainPage from './components/pages/MainPage/MainPage';
 
 const Routes = () => {
-  const dispatch = useDispatch();
   const { token } = useSelector(({ auth }) => ({ token: auth.token }));
-
-  useEffect(() => {
-    const storageData = JSON.parse(localStorage.getItem(USER_STORAGE));
-    if (storageData) {
-      dispatch(setUser(storageData));
-    }
-  }, []);
 
   if (!token) {
     return (

@@ -10,3 +10,6 @@ export const RESET_USER = 'reset_user';
 
 //activation
 export const ACTIVATION = 'activation';
+
+// user
+export const USER = 'user';

@@ -1,15 +1,15 @@
 import React from 'react';
-//import { useSelector } from 'react-redux';
+import withAuth from '../../../hoc/withAuth';
 import Routes from '../../../routes';
 
 const Content = () => {
-  //const { isLoading } = useSelector(({ api }) => ({ isLoading: api.isLoading }));
-
-  //if (isLoading) {
-  //return <p>Loading...</p>;
-  //}
-
-  return <Routes />;
+  return (
+    <div>
+      <div>Header</div>
+      <Routes />
+      <div>Footer</div>
+    </div>
+  );
 };
 
-export default Content;
+export default withAuth(Content);

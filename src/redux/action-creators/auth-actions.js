@@ -1,5 +1,12 @@
-import { SIGN_UP, SET_USER, SIGN_IN, ACTIVATION, RESET_USER } from '../action-types/auth-types';
-import { AUTH_ENDPOINTS } from '../../endpoints';
+import {
+  SIGN_UP,
+  SET_USER,
+  SIGN_IN,
+  ACTIVATION,
+  RESET_USER,
+  USER,
+} from '../action-types/auth-types';
+import { AUTH_ENDPOINTS, USER_ENDPOINTS } from '../../endpoints';
 import { USER_STORAGE } from '../../constants/storages';
 import { apiAction } from './api-actions';
 
@@ -31,6 +38,16 @@ export const activationUser = (token) => {
   });
 };
 
+export const getCurrentUser = (token) => {
+  return apiAction({
+    url: USER_ENDPOINTS.CURRENT_USER,
+    method: 'GET',
+    label: USER,
+    onSuccess: setUserData,
+    data: { token },
+  });
+};
+
 // reducer actions
 const setUserData = (data) => ({
   type: SET_USER,
@@ -42,7 +59,7 @@ const resetUserData = () => ({
 });
 
 export const setUser = (data) => (dispatch) => {
-  localStorage.setItem(USER_STORAGE, JSON.stringify(data));
+  localStorage.setItem(USER_STORAGE, data.token);
   dispatch(setUserData(data));
 };
 
