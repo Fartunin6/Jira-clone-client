@@ -6,7 +6,7 @@ const MainPage = () => {
   const dispatch = useDispatch();
 
   return (
-    <section className="container main">
+    <section>
       <button onClick={() => dispatch(resetUser())}>log out</button>
       main page
     </section>

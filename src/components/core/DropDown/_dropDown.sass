@@ -1,0 +1,29 @@
+.drop-down
+    &__close
+        position: absolute
+        z-index: 5
+        right: 8px
+        top: 60px
+        width: 32px
+        height: 32px
+        opacity: 0.3
+        &:hover
+            opacity: 1
+        &:before, &:after
+            position: absolute
+            left: 15px
+            content: ' '
+            height: 25px
+            width: 2px
+            background-color: #000000
+        &:before
+            transform: rotate(45deg)
+        &:after
+            transform: rotate(-45deg)
+    &__title
+        width: 100%
+        text-align: center
+        font-size: 18px
+        color: #333333
+        font-weight: 300
+        margin-bottom: 25px
