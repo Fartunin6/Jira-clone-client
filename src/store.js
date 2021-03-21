@@ -4,11 +4,13 @@ import thunk from 'redux-thunk';
 import { apiMiddleware } from './middlewares/apiMiddleware';
 import { apiReducer } from './redux/reducers/api-reducer';
 import authReducer from './redux/reducers/auth-reducer';
+import boardReducer from './redux/reducers/board-reducer';
 
 const rootReducer = combineReducers({
   form: formReducer,
   api: apiReducer,
   auth: authReducer,
+  board: boardReducer,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

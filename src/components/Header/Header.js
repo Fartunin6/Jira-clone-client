@@ -25,7 +25,7 @@ const Header = () => {
       </div>
 
       <div>
-        <Link to="" className="header__logo">
+        <Link to="/" className="header__logo">
           Jira clone
         </Link>
       </div>

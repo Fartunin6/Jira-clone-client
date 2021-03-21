@@ -7,3 +7,7 @@ export const AUTH_ENDPOINTS = {
 export const USER_ENDPOINTS = {
   CURRENT_USER: '/user/me',
 };
+
+export const BOARD_ENDPOINTS = {
+  GET_BOARDS: '/board/all',
+};

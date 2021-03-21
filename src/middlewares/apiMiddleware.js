@@ -1,5 +1,6 @@
 import { API } from '../redux/action-types/api-types';
 import axios from 'axios';
+import { TOKEN_STORAGE } from '../constants/storages';
 import {
   accessDenied,
   apiEnd,
@@ -13,13 +14,13 @@ export const apiMiddleware = ({ dispatch }) => (next) => (action) => {
 
   if (action.type !== API) return;
 
-  const { url, method, data, accessToken, onSuccess, onFailure, label, headers } = action.payload;
+  const { url, method, data, onSuccess, onFailure, label, headers } = action.payload;
 
   const dataOrParams = ['GET', 'DELETE'].includes(method) ? 'params' : 'data';
 
   axios.defaults.baseURL = process.env.REACT_APP_API_URL || '';
   axios.defaults.headers.common['Content-Type'] = 'application/json';
-  axios.defaults.headers.common['Authorization'] = `Bearer ${accessToken}`;
+  axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem(TOKEN_STORAGE)}`;
 
   if (label) {
     dispatch(apiStart(label));
