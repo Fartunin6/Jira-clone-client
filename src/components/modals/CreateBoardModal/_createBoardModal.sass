@@ -1,0 +1,71 @@
+.create-board
+    height: 90%
+    display: flex
+    align-items: center
+    justify-content: flex-start
+    &__form
+        font-family: 'Roboto', sans-serif
+        display: flex
+        flex-direction: column
+        width: 40%
+        margin-right: 150px
+    &__input
+        padding-left: 10px
+        height: 30px
+        width: 100%
+        font-size: 20px
+        color: #000000
+        font-weight: bold
+        margin-bottom: 10px
+        border: 1px solid
+        border-radius: 6px
+        &:focus
+            border: 1px solid #000000
+    &__textarea
+        height: 70px
+        width: 100%
+        padding-top: 10px
+        padding-left: 10px
+        margin-bottom: 20px
+        resize: none
+        border: 1px solid
+        border-radius: 6px
+        &:focus
+            border: 1px solid #000000
+    &__button
+        font-size: 18px
+        border-radius: 4px
+        border: 1px solid #FFFAFA
+        background-color: #90EE90
+        height: 34px
+        width: 55%
+        transition: all 0.2s
+        &:hover
+            opacity: 0.7
+    &__bgs
+        height: 200px
+        width: 200px
+    &__list
+        padding: 0
+        list-style: none
+        display: flex
+        flex-wrap: wrap
+    &__bg-item
+        width: 40px
+        height: 40px
+        margin: 5px
+        position: relative
+    &__active
+        display: flex
+        justify-content: center
+        align-items: center
+        position: absolute
+        width: 100%
+        height: 100%
+        background: rgba(0, 0, 0, 0.3)
+        &::before
+            content: '\2713'
+            font-weight: 500
+            display: inline-block
+            color: white
+            font-size: 20px

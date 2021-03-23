@@ -1,15 +1,22 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getBoards } from '../../../redux/action-creators/board-actions';
+import { getBoards, deleteBoard } from '../../../redux/action-creators/board-actions';
 import BoardItem from '../../BoardItem/BoardItem';
+import CreateBoardModal from '../../modals/CreateBoardModal/CreateBoardModal';
 
 const MainPage = () => {
   const dispatch = useDispatch();
   const { boards } = useSelector(({ board }) => board);
 
+  const [visibleModal, setVisibleModal] = useState(false);
+
   useEffect(() => {
     dispatch(getBoards());
   }, []);
+
+  const deleteBoardById = (id) => {
+    dispatch(deleteBoard(id));
+  };
 
   return (
     <section className="main">
@@ -17,15 +24,17 @@ const MainPage = () => {
         {boards.map((board) => {
           return (
             <li key={board._id}>
-              <BoardItem board={board} />
+              <BoardItem {...board} deleteBoard={deleteBoardById} />
             </li>
           );
         })}
       </ul>
 
-      <button className="button primary-button" type="button">
-        create new board
+      <button onClick={() => setVisibleModal(true)} className="button primary-button" type="button">
+        Create new board
       </button>
+
+      {visibleModal && <CreateBoardModal onClose={() => setVisibleModal(false)} />}
     </section>
   );
 };
