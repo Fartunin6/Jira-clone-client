@@ -1,4 +1,11 @@
-import { API_END, API_ERROR, API_START, API_SUCCESS } from '../action-types/api-types';
+import {
+  API_END,
+  API_ERROR,
+  API_START,
+  API_SUCCESS,
+  CLEAR_ERROR,
+  CLEAR_SUCCESS,
+} from '../action-types/api-types';
 
 const initialState = {
   isLoading: false,
@@ -27,6 +34,16 @@ export const apiReducer = (state = initialState, action) => {
       return {
         ...state,
         errorMessage: { error: action.payload },
+      };
+    case CLEAR_SUCCESS:
+      return {
+        ...state,
+        successMessage: null,
+      };
+    case CLEAR_ERROR:
+      return {
+        ...state,
+        errorMessage: null,
       };
     default:
       return state;

@@ -5,6 +5,8 @@ import {
   API_ERROR,
   API_START,
   API_SUCCESS,
+  CLEAR_ERROR,
+  CLEAR_SUCCESS,
 } from '../action-types/api-types';
 
 export const apiStart = (label) => ({
@@ -58,3 +60,12 @@ export const apiAction = ({
     },
   };
 };
+
+// toast actions
+export const clearSuccess = () => ({
+  type: CLEAR_SUCCESS,
+});
+
+export const clearError = () => ({
+  type: CLEAR_ERROR,
+});

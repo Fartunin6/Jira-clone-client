@@ -11,6 +11,8 @@
     &:hover
         cursor: pointer
         opacity: 0.7
+        .board-item__save
+            display: block
     &__title
         width: 130px
         word-break: break-all
@@ -35,3 +37,22 @@
             transform: rotate(45deg)
         &:after
             transform: rotate(-45deg)
+    &__save
+        display: none
+        position: absolute
+        bottom: 4px
+        right: 4px
+        transition: 0.2s all
+        &:hover
+            opacity: 0.7
+    &__saved
+        display: block
+    &__change
+        width: 10px
+        height: 10px
+        padding: 4px
+        margin-left: 4px
+
+        &:hover
+            background: white
+            border-radius: 4px

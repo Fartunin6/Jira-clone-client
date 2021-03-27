@@ -12,4 +12,5 @@ export const BOARD_ENDPOINTS = {
   GET_BOARDS: '/board/all',
   CREATE_BOARD: '/board/',
   DELETE_BOARD: '/board/delete',
+  UPDATE_BOARD: '/board/update',
 };

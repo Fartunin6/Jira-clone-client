@@ -1,4 +1,10 @@
-import { CREATE_BOARD, DELETE_BOARD, GET_BOARDS, SET_BOARDS } from '../action-types/board-types';
+import {
+  CREATE_BOARD,
+  DELETE_BOARD,
+  GET_BOARDS,
+  SET_BOARDS,
+  UPDATE_BOARD,
+} from '../action-types/board-types';
 
 import { BOARD_ENDPOINTS } from '../../endpoints';
 import { apiAction } from './api-actions';
@@ -29,6 +35,16 @@ export const deleteBoard = (id) => {
     label: DELETE_BOARD,
     onSuccess: setBoards,
     data: { id },
+  });
+};
+
+export const updateBoard = (id, newFields) => {
+  return apiAction({
+    url: BOARD_ENDPOINTS.UPDATE_BOARD,
+    method: 'PATCH',
+    label: UPDATE_BOARD,
+    onSuccess: setBoards,
+    data: { id, newFields },
   });
 };
 
