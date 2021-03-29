@@ -1,6 +1,6 @@
 .board-item
-    height: 80px
-    width: 170px
+    height: 90px
+    width: 200px
     padding-left: 10px
     padding-top: 7px
     border-radius: 4px
@@ -14,7 +14,8 @@
         .board-item__save
             display: block
     &__title
-        width: 130px
+        display: flex
+        width: 180px
         word-break: break-all
         color: white
         font-weight: bold
@@ -46,13 +47,37 @@
         &:hover
             opacity: 0.7
     &__saved
+        width: 20px
+        height: 20px
         display: block
     &__change
         width: 10px
         height: 10px
         padding: 4px
         margin-left: 4px
-
         &:hover
             background: white
+            border-radius: 4px
+    &__input
+        width: 115px
+        border: 1px solid black
+        border-radius: 4px
+        outline: none
+        color: #000000
+    &__active
+        margin-left: 4px
+        padding: 4px
+        display: flex
+        justify-content: center
+        align-items: center
+        width: 10px
+        height: 10px
+        &::before
+            content: '\2713'
+            font-weight: 500
+            display: inline-block
+            color: black
+            font-size: 18px
+        &:hover
+            background-color: #fff
             border-radius: 4px

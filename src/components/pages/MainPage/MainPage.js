@@ -22,11 +22,20 @@ const MainPage = () => {
     dispatch(updateBoard(id, { isSaved: !isSaved }));
   };
 
+  const changeTitleById = (id, title) => {
+    dispatch(updateBoard(id, { title }));
+  };
+
   const mapBoards = (boards) => {
     return boards.map((board) => {
       return (
         <li key={board._id}>
-          <BoardItem {...board} deleteBoard={deleteBoardById} saveBoard={saveBoardById} />
+          <BoardItem
+            {...board}
+            deleteBoard={deleteBoardById}
+            saveBoard={saveBoardById}
+            changeTitle={changeTitleById}
+          />
         </li>
       );
     });
@@ -46,7 +55,7 @@ const MainPage = () => {
         {boards.length > 0 ? (
           <ul className="main__list">{mapBoards(boards)}</ul>
         ) : (
-          <p>Add your first board now</p>
+          <p className="main__all-error">You have not added any boards yet</p>
         )}
       </div>
 
