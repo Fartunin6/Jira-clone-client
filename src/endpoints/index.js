@@ -9,7 +9,7 @@ export const USER_ENDPOINTS = {
 };
 
 export const BOARD_ENDPOINTS = {
-  GET_BOARDS: '/board/all',
+  GET_BOARDS: '/board/user-boards',
   CREATE_BOARD: '/board/',
   DELETE_BOARD: '/board/delete',
   UPDATE_BOARD: '/board/update',

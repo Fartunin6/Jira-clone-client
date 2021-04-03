@@ -1,11 +1,22 @@
 import React, { useState } from 'react';
 import starIcon from '../../assets/images/star.png';
-import yellowStarIcon from '../../assets/images/yellow-star.png';
 import penIcon from '../../assets/images/pen.svg';
 
 const BoardItem = ({ title, background, deleteBoard, saveBoard, changeTitle, _id, isSaved }) => {
   const [visibleInput, setVisibleInput] = useState(false);
   const [editedTitle, setEditedTitle] = useState(title);
+
+  const changeBoardTitle = () => {
+    setVisibleInput(false);
+    if (editedTitle !== title && editedTitle !== '') {
+      changeTitle(_id, editedTitle);
+    }
+  };
+
+  const cancelChangingTitle = () => {
+    setVisibleInput(false);
+    setEditedTitle(title);
+  };
 
   return (
     <div className="board-item" style={{ background: background }}>
@@ -18,14 +29,12 @@ const BoardItem = ({ title, background, deleteBoard, saveBoard, changeTitle, _id
               value={editedTitle}
               className="board-item__input"
             />
-            <div
-              onClick={() => {
-                setVisibleInput(false);
-                if (editedTitle !== title) {
-                  changeTitle(_id, editedTitle);
-                }
-              }}
-              className="board-item__active"></div>
+            <button
+              disabled={editedTitle === ''}
+              type="button"
+              onClick={changeBoardTitle}
+              className="board-item__active"></button>
+            <div onClick={cancelChangingTitle} className="board-item__cancel"></div>
           </>
         ) : (
           <>

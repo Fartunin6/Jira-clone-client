@@ -19,6 +19,7 @@
         word-break: break-all
         color: white
         font-weight: bold
+        position: relative
     &__delete
         position: absolute
         right: 12px
@@ -65,13 +66,15 @@
         outline: none
         color: #000000
     &__active
+        border: none
+        background: none
         margin-left: 4px
         padding: 4px
         display: flex
         justify-content: center
         align-items: center
-        width: 10px
-        height: 10px
+        width: 18px
+        height: 18px
         &::before
             content: '\2713'
             font-weight: 500
@@ -81,3 +84,26 @@
         &:hover
             background-color: #fff
             border-radius: 4px
+        &:disabled
+            border-radius: 4px
+            background-color: lightgray
+    &__cancel
+        position: absolute
+        right: 18px
+        top: 0
+        width: 18px
+        height: 18px
+        &:hover
+            border-radius: 4px
+            background-color: #fff
+        &:before, &:after
+            position: absolute
+            left: 10px
+            content: ' '
+            height: 16px
+            width: 1px
+            background-color: black
+        &:before
+            transform: rotate(45deg)
+        &:after
+            transform: rotate(-45deg)
