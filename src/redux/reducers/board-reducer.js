@@ -8,7 +8,7 @@ const boardReducer = (state = initalState, action) => {
   switch (action.type) {
     case SET_BOARDS:
       return {
-        boards: action.payload.boards,
+        boards: action.payload.data,
       };
     default:
       return state;

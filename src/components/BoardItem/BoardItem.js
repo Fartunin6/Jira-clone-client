@@ -19,7 +19,7 @@ const BoardItem = ({ title, background, deleteBoard, saveBoard, changeTitle, _id
   };
 
   return (
-    <div className="board-item" style={{ background: background }}>
+    <div className="board-item" style={{ background: background.color }}>
       <div className="board-item__title">
         {visibleInput ? (
           <>

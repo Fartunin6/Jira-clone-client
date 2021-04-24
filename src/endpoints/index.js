@@ -14,3 +14,7 @@ export const BOARD_ENDPOINTS = {
   DELETE_BOARD: '/board/delete',
   UPDATE_BOARD: '/board/update',
 };
+
+export const BACKGROUND_ENDPOINTS = {
+  GET_BACKGROUNDS: '/backgrounds/all',
+};

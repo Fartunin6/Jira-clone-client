@@ -4,6 +4,7 @@ import thunk from 'redux-thunk';
 import { apiMiddleware } from './middlewares/apiMiddleware';
 import { apiReducer } from './redux/reducers/api-reducer';
 import authReducer from './redux/reducers/auth-reducer';
+import backgroundReducer from './redux/reducers/background-reducer';
 import boardReducer from './redux/reducers/board-reducer';
 
 const rootReducer = combineReducers({
@@ -11,6 +12,7 @@ const rootReducer = combineReducers({
   api: apiReducer,
   auth: authReducer,
   board: boardReducer,
+  background: backgroundReducer,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
