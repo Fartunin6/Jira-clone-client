@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getBoards, deleteBoard, updateBoard } from '../../../redux/action-creators/board-actions';
 import BoardItem from '../../BoardItem/BoardItem';
@@ -30,12 +31,14 @@ const MainPage = () => {
     return boards.map((board) => {
       return (
         <li key={board._id}>
-          <BoardItem
-            {...board}
-            deleteBoard={deleteBoardById}
-            saveBoard={saveBoardById}
-            changeTitle={changeTitleById}
-          />
+          <Link to={`/board/${board._id}`}>
+            <BoardItem
+              {...board}
+              deleteBoard={deleteBoardById}
+              saveBoard={saveBoardById}
+              changeTitle={changeTitleById}
+            />
+          </Link>
         </li>
       );
     });

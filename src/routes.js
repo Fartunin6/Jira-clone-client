@@ -7,6 +7,7 @@ import SignInPage from './components/pages/authPages/SignInPage';
 import SignUpPage from './components/pages/authPages/SignUpPage';
 import ConfirmPage from './components/pages/authPages/ConfirmPage';
 import MainPage from './components/pages/MainPage/MainPage';
+import BoardPage from './components/pages/BoardPage/BoardPage';
 
 const Routes = () => {
   const { token } = useSelector(({ auth }) => ({ token: auth.token }));
@@ -26,6 +27,7 @@ const Routes = () => {
   return (
     <Switch>
       <Route path="/" exact component={MainPage} />
+      <Route path="/board/:id" component={BoardPage} />
 
       <Redirect to="/" />
     </Switch>

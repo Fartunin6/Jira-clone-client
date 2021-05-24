@@ -13,6 +13,7 @@ export const BOARD_ENDPOINTS = {
   CREATE_BOARD: '/board/',
   DELETE_BOARD: '/board/delete',
   UPDATE_BOARD: '/board/update',
+  GET_BOARD: '/board/',
 };
 
 export const BACKGROUND_ENDPOINTS = {

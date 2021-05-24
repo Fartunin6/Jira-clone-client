@@ -4,6 +4,8 @@ import {
   GET_BOARDS,
   SET_BOARDS,
   UPDATE_BOARD,
+  GET_BOARD,
+  SET_BOARD,
 } from '../action-types/board-types';
 
 import { BOARD_ENDPOINTS } from '../../endpoints';
@@ -48,7 +50,22 @@ export const updateBoard = (id, newFields) => {
   });
 };
 
+export const getBoard = (id) => {
+  return apiAction({
+    url: BOARD_ENDPOINTS.GET_BOARD,
+    method: 'GET',
+    label: GET_BOARD,
+    onSuccess: setCurrentBoard,
+    data: { id },
+  });
+};
+
 const setBoards = (boards) => ({
   type: SET_BOARDS,
   payload: boards,
+});
+
+const setCurrentBoard = (board) => ({
+  type: SET_BOARD,
+  payload: board,
 });
